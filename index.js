@@ -1,7 +1,8 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
-const PORT = process.env.PORT || 3000;
-app.use(cors()); // Enable CORS for all routes
+
+app.use(cors());
 
 const customers = [
   { id: 1, name: 'Ahmed Ali' },
@@ -23,15 +24,12 @@ const transactions = [
   { id: 9, customer_id: 5, date: '2022-01-02', amount: 875 },
 ];
 
-app.get('/api/customers', (req, res) => {
+app.get('/customers', (req, res) => {
   res.json(customers);
 });
 
-app.get('/api/transactions', (req, res) => {
+app.get('/transactions', (req, res) => {
   res.json(transactions);
 });
 
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
 module.exports = app;
