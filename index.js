@@ -34,4 +34,7 @@ app.get('/customers', (req, res) => {
 app.get('/transactions', (req, res) => {
   res.json(transactions);
 });
-
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});
